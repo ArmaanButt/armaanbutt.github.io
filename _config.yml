@@ -21,17 +21,17 @@
 title: Armaan Butt
 email: armaan.r.butt@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  From complex code to ancient history, this is my journey through the topics that fascinate me. 
+  Written by Armaan Butt, an engineer and curious traveler.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://armaanbutt.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: armaangalaxy
 github_username: armaanbutt
+linkedin_username: armaan-butt-97317682
 
 # Build settings
-# theme: minima
-remote_theme: "mmistakes/minimal-mistakes@4.27.3"
+theme: minima
+# remote_theme: "mmistakes/minimal-mistakes@4.27.3"
 plugins:
   - jekyll-feed
   - jekyll-include-cache
