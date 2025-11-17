@@ -30,7 +30,8 @@ twitter_username: armaangalaxy
 github_username: armaanbutt
 
 # Build settings
-theme: minimal-mistakes-jekyll
+# theme: minimal-mistakes-jekyll
+remote_theme: mmistakes/minimal-mistakes
 plugins:
   - jekyll-feed
 # Exclude from processing.
