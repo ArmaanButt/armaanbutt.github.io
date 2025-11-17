@@ -1,11 +1,11 @@
 ---
 layout: page
-title: About
+title: About Me
 ---
 
-Hi, I'm Armaan. Welcome to my personal blog!
+<img src="/assets/images/profile.jpeg" alt="A photo of Armaan" class="profile-pic">
 
-<img src="/assets/images/profile.jpeg" alt="A photo of Armaan" style="float: right; width: 100%; max-width: 300px; border-radius: 50px; margin: 0 0 1em 1.5em;">
+Hi, I'm Armaan. Welcome to my personal blog!
 
 I'm a **Senior Solutions Architect** working in the **Generative AI** space. My career has been spent at the intersection of complex technology and the people who use it, including time in software engineering and management.
 

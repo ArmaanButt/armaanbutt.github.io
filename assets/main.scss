@@ -1,0 +1,31 @@
+---
+---
+
+@import "minima";
+
+/*
+====================================
+Custom CSS for Profile Picture
+====================================
+*/
+
+.profile-pic {
+  /* --- Mobile Styles (Default) --- */
+  /* This will be the default for all small screens */
+  display: block;       /* Make it a block so it takes its own line */
+  float: none;          /* Stop it from floating */
+  width: 90%;           /* Give it 10% breathing room on the sides */
+  max-width: 300px;     /* Don't let it get bigger than 300px */
+  margin: 1.5em auto;   /* Center it (auto) with space top/bottom */
+  border-radius: 50px;
+
+  /* --- Desktop & Tablet Styles --- */
+  /* This "media query" applies these styles ONLY on screens 
+     wider than 600px */
+  @media (min-width: 600px) {
+    float: right;             /* Float it to the right again */
+    width: 100%;              /* Let the max-width control it */
+    max-width: 300px;
+    margin: 0 0 1em 1.5em;  /* Give it space on the left and bottom */
+  }
+}
