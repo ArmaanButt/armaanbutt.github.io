@@ -232,6 +232,11 @@ a:hover {
   border-bottom: 1px solid var(--pi-rule);
 }
 
+.post-list h3 {
+  margin: 0;
+  line-height: 1;
+}
+
 .post-list .post-meta {
   grid-column: 2;
   grid-row: 1;
