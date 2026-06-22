@@ -3,29 +3,424 @@
 
 @import "minima";
 
-/*
-====================================
-Custom CSS for Profile Picture
-====================================
-*/
+:root {
+  --pi-bg: #f8f7f2;
+  --pi-ink: #11100d;
+  --pi-muted: #6f6b61;
+  --pi-rule: rgba(17, 16, 13, 0.16);
+  --pi-rule-strong: rgba(17, 16, 13, 0.78);
+  --pi-accent: #ebe6d6;
+  --pi-max: 1180px;
+  --pi-radius: 28px;
+}
 
-.profile-pic {
-  /* --- Mobile Styles (Default) --- */
-  /* This will be the default for all small screens */
-  display: block;       /* Make it a block so it takes its own line */
-  float: none;          /* Stop it from floating */
-  width: 90%;           /* Give it 10% breathing room on the sides */
-  max-width: 300px;     /* Don't let it get bigger than 300px */
-  margin: 1.5em auto;   /* Center it (auto) with space top/bottom */
-  border-radius: 50px;
+* {
+  box-sizing: border-box;
+}
 
-  /* --- Desktop & Tablet Styles --- */
-  /* This "media query" applies these styles ONLY on screens 
-     wider than 600px */
-  @media (min-width: 600px) {
-    float: right;             /* Float it to the right again */
-    width: 100%;              /* Let the max-width control it */
-    max-width: 300px;
-    margin: 0 0 1em 1.5em;  /* Give it space on the left and bottom */
+html {
+  background: var(--pi-bg);
+}
+
+body {
+  color: var(--pi-ink);
+  background:
+    radial-gradient(circle at top right, rgba(235, 230, 214, 0.72), transparent 34rem),
+    var(--pi-bg);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 18px;
+  line-height: 1.58;
+  letter-spacing: -0.018em;
+}
+
+a,
+a:visited {
+  color: inherit;
+  text-decoration-color: rgba(17, 16, 13, 0.28);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--pi-muted);
+  text-decoration-color: currentColor;
+}
+
+.wrapper {
+  max-width: var(--pi-max);
+  padding-right: 28px;
+  padding-left: 28px;
+}
+
+.site-header {
+  min-height: auto;
+  border-top: 0;
+  border-bottom: 1px solid var(--pi-rule-strong);
+  background: rgba(248, 247, 242, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 76px;
+}
+
+.site-title,
+.site-title:visited {
+  float: none;
+  color: var(--pi-ink);
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.09em;
+}
+
+.site-title::after {
+  content: "π";
+  display: inline-block;
+  margin-left: 0.2em;
+  color: var(--pi-muted);
+  font-size: 0.38em;
+  letter-spacing: 0;
+  vertical-align: top;
+}
+
+.site-nav {
+  float: none;
+  line-height: 1;
+}
+
+.site-nav .page-link {
+  color: var(--pi-ink);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.site-nav .page-link:not(:last-child) {
+  margin-right: 22px;
+}
+
+.page-content {
+  padding: 0;
+}
+
+.home,
+.post,
+.page {
+  padding-top: clamp(48px, 8vw, 104px);
+}
+
+.pi-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.34fr);
+  gap: clamp(32px, 7vw, 92px);
+  min-height: 58vh;
+  padding-bottom: clamp(56px, 9vw, 120px);
+  border-bottom: 1px solid var(--pi-rule-strong);
+}
+
+.pi-kicker,
+.pi-label,
+.post-meta,
+.footer-heading {
+  color: var(--pi-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pi-kicker {
+  margin: 0 0 30px;
+}
+
+.pi-manifesto {
+  max-width: 920px;
+  margin: 0;
+  font-size: clamp(3.2rem, 10vw, 8.9rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.095em;
+}
+
+.pi-hero__aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 28px;
+  max-width: 340px;
+}
+
+.pi-intro {
+  margin: 0;
+  color: var(--pi-muted);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+}
+
+.pi-wordmark {
+  width: min(220px, 100%);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--pi-rule-strong);
+  border-radius: 50%;
+  background: var(--pi-accent);
+  color: var(--pi-ink);
+  font-size: clamp(4rem, 11vw, 8rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.1em;
+}
+
+.pi-meta-grid,
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--pi-rule-strong);
+}
+
+.pi-meta-card,
+.about-card {
+  min-height: 210px;
+  padding: 28px;
+  border-right: 1px solid var(--pi-rule);
+}
+
+.pi-meta-card:last-child,
+.about-card:last-child {
+  border-right: 0;
+}
+
+.pi-meta-card p,
+.about-card p {
+  margin: 18px 0 0;
+  color: var(--pi-ink);
+  font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+  line-height: 1.12;
+  letter-spacing: -0.06em;
+}
+
+.post-list-heading {
+  margin: clamp(56px, 9vw, 104px) 0 0;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--pi-rule-strong);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.post-list {
+  margin-left: 0;
+}
+
+.post-list > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, auto);
+  gap: 28px;
+  align-items: baseline;
+  margin: 0;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--pi-rule);
+}
+
+.post-list .post-meta {
+  grid-column: 2;
+  grid-row: 1;
+  white-space: nowrap;
+}
+
+.post-list .post-link {
+  grid-column: 1;
+  color: var(--pi-ink);
+  font-size: clamp(2rem, 5.8vw, 5rem);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.085em;
+  text-decoration: none;
+}
+
+.post-list > li:hover .post-link {
+  color: var(--pi-muted);
+}
+
+.post-header {
+  margin-bottom: clamp(42px, 8vw, 88px);
+  padding-bottom: clamp(38px, 7vw, 80px);
+  border-bottom: 1px solid var(--pi-rule-strong);
+}
+
+.post-title,
+.page-heading,
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  color: var(--pi-ink);
+  font-weight: 500;
+  letter-spacing: -0.08em;
+}
+
+.post-title,
+.page-heading {
+  max-width: 960px;
+  font-size: clamp(3rem, 9vw, 8rem);
+  line-height: 0.92;
+}
+
+.post-content {
+  max-width: 790px;
+  color: var(--pi-ink);
+}
+
+.post-content p,
+.post-content li {
+  font-size: clamp(1.05rem, 2.1vw, 1.28rem);
+  line-height: 1.55;
+}
+
+.post-content strong {
+  font-weight: 650;
+}
+
+.post-content ul {
+  margin-left: 1.1em;
+}
+
+.about-intro {
+  max-width: 980px;
+  margin: 0 0 clamp(46px, 8vw, 92px);
+  font-size: clamp(2.4rem, 6.5vw, 5.9rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.085em;
+}
+
+.about-closer {
+  max-width: 780px;
+  margin: clamp(48px, 8vw, 88px) 0 0 auto;
+  color: var(--pi-muted);
+  font-size: clamp(1.2rem, 2.6vw, 2rem);
+  line-height: 1.22;
+  letter-spacing: -0.055em;
+}
+
+.pi-not-found {
+  min-height: 56vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.pi-not-found h1 {
+  margin: 0 0 20px;
+  font-size: clamp(6rem, 20vw, 16rem);
+  font-weight: 500;
+  line-height: 0.86;
+  letter-spacing: -0.12em;
+}
+
+.site-footer {
+  margin-top: clamp(72px, 12vw, 140px);
+  padding: 34px 0 48px;
+  border-top: 1px solid var(--pi-rule-strong);
+}
+
+.footer-col-wrapper,
+.footer-col-wrapper a {
+  color: var(--pi-muted);
+}
+
+.footer-col {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 16px;
+  }
+
+  .wrapper {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .site-header .wrapper {
+    min-height: 68px;
+  }
+
+  .site-nav {
+    position: static;
+    border: 0;
+    background: transparent;
+  }
+
+  .site-nav .menu-icon {
+    display: none;
+  }
+
+  .site-nav .trigger {
+    display: block;
+    padding: 0;
+  }
+
+  .site-nav .page-link {
+    display: inline-block;
+    margin-left: 14px;
+  }
+
+  .site-nav .page-link:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .pi-hero,
+  .post-list > li {
+    grid-template-columns: 1fr;
+  }
+
+  .pi-hero {
+    min-height: 0;
+  }
+
+  .pi-hero__aside {
+    max-width: none;
+  }
+
+  .pi-wordmark {
+    width: 156px;
+  }
+
+  .pi-meta-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pi-meta-card,
+  .about-card {
+    min-height: 0;
+    padding: 24px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--pi-rule);
+  }
+
+  .pi-meta-card:last-child,
+  .about-card:last-child {
+    border-bottom: 0;
+  }
+
+  .post-list .post-meta,
+  .post-list .post-link {
+    grid-column: 1;
+  }
+
+  .post-list .post-meta {
+    grid-row: auto;
   }
 }
