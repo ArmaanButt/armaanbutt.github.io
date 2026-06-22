@@ -8,15 +8,15 @@ permalink: /about/
 
 <section class="about-grid" aria-label="About Armaan">
   <div class="about-card">
-    <span class="pi-label">Role</span>
+    <span class="blog-label">Role</span>
     <p>Senior Solutions Architect in the generative AI space.</p>
   </div>
   <div class="about-card">
-    <span class="pi-label">Background</span>
+    <span class="blog-label">Background</span>
     <p>Software engineering, management, and technical strategy.</p>
   </div>
   <div class="about-card">
-    <span class="pi-label">Lens</span>
+    <span class="blog-label">Lens</span>
     <p>Curiosity about how systems, stories, and places fit together.</p>
   </div>
 </section>

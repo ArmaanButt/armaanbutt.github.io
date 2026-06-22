@@ -111,7 +111,7 @@ a:hover {
 }
 
 .blog-eyebrow,
-.pi-label,
+.blog-label,
 .post-meta,
 .footer-heading {
   color: var(--pi-muted);
@@ -304,14 +304,14 @@ a:hover {
   letter-spacing: -0.055em;
 }
 
-.pi-not-found {
+.blog-not-found {
   min-height: 56vh;
   display: grid;
   place-items: center;
   text-align: center;
 }
 
-.pi-not-found h1 {
+.blog-not-found h1 {
   margin: 0 0 20px;
   font-size: clamp(6rem, 20vw, 16rem);
   font-weight: 500;
