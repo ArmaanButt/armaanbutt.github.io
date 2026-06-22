@@ -12,7 +12,7 @@ list_title: Latest posts
 
 <section class="blog-topics" aria-label="Writing topics">
   <span>Writing about</span>
-  <a href="/tech/opinion/">Technology</a>
+  <span>Technology</span>
   <span>History</span>
   <span>Travel</span>
 </section>
