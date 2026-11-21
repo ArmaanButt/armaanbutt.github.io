@@ -1,17 +1,32 @@
 # armaanbutt.com
 
-Plain HTML homepage. Posts are written on [Bear Blog](https://armaanbutt.bearblog.dev) and the
-homepage lists them by reading its Atom feed at build time.
+Plain HTML personal site with posts written in Markdown.
 
-- `index.html` is the homepage template (`{{posts}}` and `{{updated}}` are filled in by `build.py`).
-- `style.css` is shared with the Bear Blog. Paste it into Bear's theme editor so the two match.
-- `.github/workflows/deploy.yml` builds and deploys to GitHub Pages on every push and hourly.
-  Run it manually from the Actions tab to publish a new post right away.
+## Publishing a post
 
-Run locally (Python 3, no dependencies):
+1. Add `posts/YYYY-MM-DD-slug.md`. The first line is the title:
+
+   ```markdown
+   # My first post
+
+   Regular **Markdown** goes here. Tables, footnotes, and fenced code blocks work.
+   Images can go in `posts/` too and be linked as `![alt](my-image.jpg)`.
+   ```
+
+2. Commit and push to `main`. The Deploy action builds the site and it's live in about a minute.
+   You can also do this on github.com: **Add file > Create new file**, name it `posts/2026-11-21-slug.md`, commit.
+
+The post appears at `/posts/slug.html`, on the homepage list, and in `/feed.xml` (RSS/Atom).
+To unpublish, delete the file and push.
+
+## Files
+
+- `index.html` is the homepage template. `post.html` is the post template.
+- `build.py` renders everything into `_site/`. `.github/workflows/deploy.yml` deploys it to GitHub Pages.
+
+## Run locally
 
 ```
-python3 build.py && python3 -m http.server -d _site 4000
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python build.py && python3 -m http.server -d _site 4000
 ```
-
-Set `BEAR_BLOG=https://someone.bearblog.dev` to preview with another blog's posts.
